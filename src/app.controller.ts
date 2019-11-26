@@ -35,9 +35,10 @@ export class AppController {
     }
 
     // 通配符的路由需要放下面
-    @Get(':id')
-    getUser(@Param() param) {
-        let userId = param.id
-        return `用户ID:${userId}`
-    }
+    // 注意，可能 会引起其它路由无法访问
+    // @Get(':id')
+    // getUser(@Param() param) {
+    //     let userId = param.id
+    //     return `用户ID:${userId}`
+    // }
 }
