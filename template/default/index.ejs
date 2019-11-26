@@ -11,20 +11,22 @@
 </head>
 
 <body>
-    <h1><%=title%></h1>
-     模板位置: <%=templatePath%>    
-    <br>
-    <hr size="1" />
-    <img src="/static/1.png" alt="" />
-    <form action="/add" method="post">
-        <input type="text" name="username" placeholder="请输入用户名" />
+    <div style="text-align: center;">
+        <h1><%=title%></h1>
+        模板位置: <%=templatePath%>
         <br>
-        <br>
-        <input type="text" name="age" placeholder="年龄" />
-        <br>
-        <br>
-        <input type="submit" value="提交">
-    </form>
+        <hr size="1" />
+        <img src="/static/1.png" alt="" />
+        <form action="/add" method="post">
+            <input type="text" name="username" placeholder="请输入用户名" />
+            <br>
+            <br>
+            <input type="text" name="age" placeholder="年龄" />
+            <br>
+            <br>
+            <input type="submit" value="提交">
+        </form>
+    </div>
 </body>
 
 </body>
