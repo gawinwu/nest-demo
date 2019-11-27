@@ -20,8 +20,6 @@ async function bootstrap() {
     app.setBaseViewsDir('template');
     app.setViewEngine('ejs');
 
-    app.use(cookieParser('secret key to'));
-
     app.use(cookieParser('secret key'))
     app.use(session({ secret: 'secret key', cookie: { maxAge: 60000, httpOnly: true }, rolling: true }))
 
