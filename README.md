@@ -2,7 +2,7 @@
 
 
 #### Nest 基本用法
-master为基本骨架，其它见各分支
+master 只是基本的使用，其它见各分支
 ```
 # npm i -g @nestjs/cli
 # nest new nest-demo
