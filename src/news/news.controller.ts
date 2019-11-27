@@ -1,19 +1,15 @@
-import { Controller, Get, Render } from '@nestjs/common';
-import { NewsService } from './news.service'
+import { Controller, Get, Query, UsePipes } from '@nestjs/common';
+
+import { NewsPipe } from '../pipe/news.pipe'
 
 @Controller('news')
 export class NewsController {
 
-    // 依赖注入
-    constructor(private newsServices: NewsService) {
-
-    }
-
     @Get()
-    @Render('default/news')
-    index() {
-        return { newsList: this.newsServices.findAll() }
+    @UsePipes(new NewsPipe())
+    index(@Query() info) {
+        console.log(info);
+
+        return '新闻模块!'
     }
-
-
 }
