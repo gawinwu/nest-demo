@@ -1,19 +1,14 @@
 # Nest Demo 实例
 
+### 全局性中间件无法使用类，只能使用函数
+在 src\main.ts 中直接配置的中间件无法使用类  
 
-#### Nest 基本用法
-master为基本骨架，其它见各分支
+需要使用类配置全局，变通方式是
 ```
-# npm i -g @nestjs/cli
-# nest new nest-demo
-# nest g controller news
-# nest g service news
+......
+.forRoutes('*');   // 匹配所有的路由
+......
 ```
 
-#### 配置ejs、Cookies和session基于express
-```
-# npm i ejs --save
-# npm i cookie-parser --save
-# npm i express-session  --save
 
-```
+

@@ -8,6 +8,9 @@ import * as session from 'express-session'
 
 import { join } from 'path';
 
+import { logger } from './middleware/logger.middleware';
+
+
 async function bootstrap() {
     //   const app = await NestFactory.create(AppModule);
     const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -20,10 +23,10 @@ async function bootstrap() {
     app.setBaseViewsDir('template');
     app.setViewEngine('ejs');
 
-    app.use(cookieParser('secret key to'));
-
     app.use(cookieParser('secret key'))
     app.use(session({ secret: 'secret key', cookie: { maxAge: 60000, httpOnly: true }, rolling: true }))
+
+    app.use(logger)
 
     await app.listen(3000);
 }
