@@ -1,4 +1,4 @@
-# Nest Demo 实例
+# Nest middleware Demo
 
 ### 全局性中间件无法使用类，只能使用函数
 在 src\main.ts 中直接配置的中间件无法使用类  
