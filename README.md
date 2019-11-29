@@ -114,8 +114,7 @@
     // 以上采用模块配置，更多配置方法： 
     https://docs.nestjs.cn/6/guards
 ```
-```
-2、在守卫里获取cookie和session
+3、在守卫里获取cookie和session
 ```
     // src\guard\admin.guard.ts
 ```
