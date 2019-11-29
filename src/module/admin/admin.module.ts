@@ -1,0 +1,22 @@
+import { Module } from '@nestjs/common';
+import { UserController } from './user/user.controller';
+import { NewsController } from './news/news.controller';
+
+import { NewsService } from '../../service/news/news.service'
+import { LoginController } from './login/login.controller';
+import { PanelController } from './panel/panel.controller';
+
+import { APP_GUARD } from '@nestjs/core';
+import {AdminGuard} from '../../guard/admin.guard'
+
+@Module({
+    controllers: [UserController, NewsController, LoginController, PanelController],
+    providers: [
+        NewsService,
+        {
+            provide: APP_GUARD,
+            useClass: AdminGuard
+        }
+    ]
+})
+export class AdminModule { }
