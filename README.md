@@ -111,7 +111,9 @@
     import { APP_GUARD } from '@nestjs/core';
     import {AdminGuard} from '../../guard/admin.guard'
 
-    // 以上采用模块配置，更多配置方法： 
+    // 以上采用模块配置，经测试，子模块的配置都全局的
+
+    // 更多配置方法： 
     https://docs.nestjs.cn/6/guards
 ```
 3、在守卫里获取cookie和session

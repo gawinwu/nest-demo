@@ -13,6 +13,8 @@ export class AdminGuard implements CanActivate {
         // let res = context.switchToHttp().getResponse()
         // console.log(res.signedCookies);
 
+        console.log(req.path);
+        
         if (loginPath === req.path) {
             return true
         }
