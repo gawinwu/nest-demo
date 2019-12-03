@@ -7,16 +7,25 @@ import { LoginController } from './login/login.controller';
 import { PanelController } from './panel/panel.controller';
 
 import { APP_GUARD } from '@nestjs/core';
-import {AdminGuard} from '../../guard/admin.guard'
+import { AdminGuard } from '../../guard/admin.guard'
+
+import { ArticleService } from '../../service/article/article.service';
+import { ArticleController } from './article/article.controller';
+
+//配置model
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Article } from '../../entity/article.entity';
 
 @Module({
-    controllers: [UserController, NewsController, LoginController, PanelController],
+    imports: [TypeOrmModule.forFeature([Article])],
+
+    controllers: [UserController, NewsController, LoginController, PanelController, ArticleController],
     providers: [
-        NewsService,
-        {
-            provide: APP_GUARD,
-            useClass: AdminGuard
-        }
+        NewsService, ArticleService,
+        // {
+        //     provide: APP_GUARD,
+        //     useClass: AdminGuard
+        // }
     ]
 })
 export class AdminModule { }
