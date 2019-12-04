@@ -21,7 +21,13 @@ async function bootstrap() {
     app.setViewEngine('ejs');
 
     app.use(cookieParser('secret key'))
-    app.use(session({ secret: 'secret key', cookie: { maxAge: 60000, httpOnly: true }, rolling: true }))
+    app.use(session({
+        secret: 'keyboard test',
+        resave: true,
+        saveUninitialized: true,
+        cookie: { maxAge: 1000 * 60 * 30, httpOnly: true },
+        rolling: true
+    }));
 
     await app.listen(3000);
 }
