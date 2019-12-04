@@ -42,4 +42,8 @@ controller正常使用内部service
 ```
 
 
-##### 不建议使用子模块内创建服务，最好是统一使用根模块下的服务
+##### 四、注意事项
+    
+1、不建议使用子模块内创建service文件，最好是统一放在 src/service 然后在子模块的*.module.ts配置使用        
+    
+2、当service使用了依赖注入，子模块与根模块.module.ts同时配置相同的service会报错   

@@ -9,19 +9,26 @@ import { PanelController } from './panel/panel.controller';
 import { APP_GUARD } from '@nestjs/core';
 import { AdminGuard } from '../../guard/admin.guard'
 
-import { ArticleService } from '../../service/article/article.service';
-import { ArticleController } from './article/article.controller';
 
 //配置model
 import { TypeOrmModule } from '@nestjs/typeorm';
+
 import { Article } from '../../entity/article.entity';
+import { Nav } from '../../entity/nav.entity';
+
+
+import { ArticleService } from '../../service/article/article.service';
+import { ArticleController } from './article/article.controller';
+
+import { NavService } from '../../service/nav/nav.service';
+import { NavController } from './nav/nav.controller';
 
 @Module({
-    imports: [TypeOrmModule.forFeature([Article])],
+    imports: [TypeOrmModule.forFeature([Article, Nav])],
 
-    controllers: [UserController, NewsController, LoginController, PanelController, ArticleController],
+    controllers: [UserController, NewsController, LoginController, PanelController, ArticleController, NavController],
     providers: [
-        NewsService, ArticleService,
+        NewsService, ArticleService, NavService,
         // {
         //     provide: APP_GUARD,
         //     useClass: AdminGuard
